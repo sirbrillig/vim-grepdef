@@ -1,12 +1,16 @@
+# vim-grepdef
+
 A vim plugin for [grepdef](https://github.com/sirbrillig/grepdef): search for symbol definitions in various programming languages
 
 This adds the command `:GrepDef <symbol> [path]`
 
 This also adds the mapping `<Leader>d` to run grepdef on the symbol under the cursor.
 
-Currently this supports only php and javascript.
+The filetype will automatically be detected. Currently this supports only php and javascript.
 
 ## Installation
+
+You must have [grepdef](https://github.com/sirbrillig/grepdef) installed.
 
 If using [Pathogen](https://github.com/tpope/vim-pathogen):
 
