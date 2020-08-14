@@ -24,3 +24,7 @@ If using [Vim-Plug](https://github.com/junegunn/vim-plug), add the following to 
 ```
 Plug 'sirbrillig/vim-grepdef'
 ```
+
+## Configuration
+
+If needed, you can set the path to `grepdef` executable by setting the `g:grepdef_path` variable.
