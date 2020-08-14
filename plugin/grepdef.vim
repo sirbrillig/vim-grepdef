@@ -1,17 +1,20 @@
 function! g:GrepDef(args)
   let ftype = &filetype
   let grepdef = get(g:, 'grepdef_path', 'grepdef')
+  let options = []
 
   let version_cmd = grepdef . ' --version'
   let version_out = system(version_cmd)
-  if version_out =~? '^No search symbol'
-    " Version 1
-    let grepdef_cmd = grepdef . ' --type ' . ftype . ' ' . a:args
-  else
+  if version_out !~? '^No search symbol'
     " Version 2+
-    let grepdef_cmd = grepdef . ' --type ' . ftype . ' --line-number ' . a:args
+    call add(options, '--line-number')
   endif
 
+  if ftype !=? ''
+    call add(options, '--type ' . ftype)
+  endif
+
+  let grepdef_cmd = grepdef . ' ' . join(options, ' ') . ' ' . a:args
   echom grepdef_cmd
   let out = system(grepdef_cmd)
   cgete out
