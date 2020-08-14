@@ -1,6 +1,6 @@
 function! g:GrepDef(args)
   let ftype = &filetype
-  let grepdef = 'grepdef'
+  let grepdef = get(g:, 'grepdef_path', 'grepdef')
 
   let version_cmd = grepdef . ' --version'
   let version_out = system(version_cmd)
