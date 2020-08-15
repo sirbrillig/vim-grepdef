@@ -6,11 +6,11 @@ function! g:GrepDef(args)
   let version_cmd = grepdef . ' --version'
   let version_out = system(version_cmd)
   if version_out !~? '^No search symbol'
-    " Version 2+
+    " grepdef Version 2+
     call add(options, '--line-number')
   endif
 
-  if ftype !=? ''
+  if ftype !=? '' && a:args !~ '--type'
     call add(options, '--type ' . ftype)
   endif
 
