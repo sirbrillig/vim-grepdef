@@ -17,6 +17,10 @@ function! g:GrepDef(args)
   let grepdef_cmd = grepdef . ' ' . join(options, ' ') . ' ' . a:args
   echom grepdef_cmd
   let out = system(grepdef_cmd)
-  cgete out
-  copen
+  if strlen(out) < 1
+    echohl ErrorMsg | echom 'No results found' | echohl None
+  else
+    cgete out
+    copen
+  endif
 endfunction
