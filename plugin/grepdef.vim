@@ -31,3 +31,6 @@ function! g:GrepDef(args)
   cgete grepdef_output
   copen
 endfunction
+
+command! -nargs=* -complete=file GrepDef :call g:GrepDef(<q-args>)
+nnoremap <Leader>d :GrepDef <cword><CR>
