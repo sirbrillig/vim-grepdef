@@ -6,7 +6,7 @@ This adds the command `:GrepDef <symbol> [path]`
 
 This also adds the mapping `<Leader>d` to run grepdef on the symbol under the cursor.
 
-The filetype will automatically be detected. Currently this supports only php and javascript.
+The filetype will automatically be detected.
 
 ## Installation
 
