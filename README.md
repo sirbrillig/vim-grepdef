@@ -28,3 +28,17 @@ Plug 'sirbrillig/vim-grepdef'
 ## Configuration
 
 If needed, you can set the path to `grepdef` executable by setting the `g:grepdef_path` variable.
+
+## FAQ
+
+### Can I automatically close the quickfix buffer after going to the definition?
+
+Yes, add the following to your vimrc (this will affect all quickfix buffers, not just grepdef):
+
+```
+" Auto close quickfix buffer after selecting an entry if there is only one entry
+function! CloseQuickFixIfOneEntry()
+	if len(getqflist()) < 2 | ccl | endif
+endfunction
+autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>:call CloseQuickFixIfOneEntry()<CR>
+```
